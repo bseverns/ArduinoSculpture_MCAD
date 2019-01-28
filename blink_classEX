@@ -1,48 +1,33 @@
-int SWITCH = 3;
+int MOTION_PIN = 2;
 
 int GREEN = 13;
 int YELLOW = 12;
 int RED = 11;
 
-boolean ON = false;
-
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(GREEN, OUTPUT);
-  pinMode(YELLOW, OUTPUT);
-  pinMode(RED, OUTPUT);
-  pinMode(SWITCH, INPUT);
+  pinMode(GREEN, OUTPUT); //LED pin
+  pinMode(YELLOW, OUTPUT); //LED pin
+  pinMode(RED, OUTPUT); //LED pin
+
+  pinMode(MOTION_PIN, INPUT_PULLUP); //PIR sensor
 }
 
 // the loop function runs over and over again forever
 void loop() {
-  if (SWITCH == HIGH) {
-    ON = true;
-    green();
+  int proximity = digitalRead(MOTION_PIN); //turning the LOW/HIGH into a number because numbers are good
+
+  if (proximity == 0) {
+    digitalWrite(GREEN, HIGH);//GREEN ON
+    delay(250);
+    digitalWrite(GREEN, LOW); //GREEN OFF
+    delay(500);
+    digitalWrite(YELLOW, HIGH); //YELLOW ON
+    delay(250);
+    digitalWrite(YELLOW, LOW); //YELLOW OFF
+    delay(250);
+    digitalWrite(RED, HIGH); //RED ON
+    delay(1000);
+    digitalWrite(RED, LOW); //RED OFF
+
   }
-  else if (SWITCH == LOW) {
-    if (ON == true) {
-      yellow();
-      ON = false;
-    }
-    else if (ON == false) {
-      red();
-    }
-  }
-}
-
-void green() {
-  digitalWrite(GREEN, HIGH);
-  digitalWrite(RED, LOW);
-}
-
-void yellow() {
-  digitalWrite(YELLOW, HIGH);
-  digitalWrite(GREEN, LOW);
-  delay(250);
-}
-
-void red() {
-  digitalWrite(YELLOW, LOW);
-  digitalWrite(RED, HIGH);
 }
