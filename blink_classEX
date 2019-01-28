@@ -1,0 +1,48 @@
+int SWITCH = 3;
+
+int GREEN = 13;
+int YELLOW = 12;
+int RED = 11;
+
+boolean ON = false;
+
+void setup() {
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(GREEN, OUTPUT);
+  pinMode(YELLOW, OUTPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(SWITCH, INPUT);
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  if (SWITCH == HIGH) {
+    ON = true;
+    green();
+  }
+  else if (SWITCH == LOW) {
+    if (ON == true) {
+      yellow();
+      ON = false;
+    }
+    else if (ON == false) {
+      red();
+    }
+  }
+}
+
+void green() {
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(RED, LOW);
+}
+
+void yellow() {
+  digitalWrite(YELLOW, HIGH);
+  digitalWrite(GREEN, LOW);
+  delay(250);
+}
+
+void red() {
+  digitalWrite(YELLOW, LOW);
+  digitalWrite(RED, HIGH);
+}
