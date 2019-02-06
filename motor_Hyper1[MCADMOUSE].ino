@@ -84,11 +84,11 @@ try setting timing to control how much the mouse turns
     //turn in a direction
     digitalWrite(m1DIR_A, LOW);
     digitalWrite(m1DIR_B, HIGH);
-    analogWrite(PWM, 255);
+    analogWrite(PWM1, 255);
     
     digitalWrite(m2DIR_A, HIGH);
     digitalWrite(m2DIR_B, LOW);
-    analogWrite(PWM1, 255);
+    analogWrite(PWM2, 255);
     
     Serial.print("TURN!!!");
   }
