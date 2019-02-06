@@ -9,13 +9,14 @@ const int m2DIR_A=7;
 const int m2DIR_B=8;
 const int PWM2 =9;
 
-#define trigPin 13
-#define echoPin 12
-#define led 11
-#define led2 10
+int trigPin = 13;
+int echoPin = 12;
+int led = 11;
+int led2 = 10;
 
 void setup() {
-  Serial.begin (9600);
+  Serial.begin (9600); //need to add this if you want to see communication back-forth with your board. much encourage
+  
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(led, OUTPUT);
@@ -40,12 +41,17 @@ void loop() {
 
   /*
      Below this zone is where you manipulate the motors!!!!
-
+try setting timing to control how much the mouse turns
      !!!!!!!
   */
 
-  if (distance < 5) {  // This is where the LED On/Off happens
-    digitalWrite(led, HIGH); // When the Red condition is met, the Green LED should turn off
+  if (distance < 5) {  
+    
+    // This is where the LED On/Off happens
+    //add more variance here- play with those patterns &&the timer library to give us a show while the motors do their thing
+    //&&the sensors does its thing
+    
+    digitalWrite(led, HIGH); // When the Red condition is met, the Green LED should turn off or whatever
     digitalWrite(led2, LOW);
 
     //MOTORS
