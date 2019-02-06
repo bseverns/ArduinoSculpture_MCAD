@@ -22,21 +22,25 @@ void setup() {
   pinMode(led, OUTPUT);
   pinMode(led2, OUTPUT);
 
-  pinMode(DIR_A, OUTPUT);
-  pinMode(DIR_B, OUTPUT);
-  pinMode(PWM, OUTPUT);
+  pinMode(m1DIR_A, OUTPUT);
+  pinMode(m1DIR_B, OUTPUT);
+  pinMode(PWM1, OUTPUT);
+  pinMode(m2DIR_A, OUTPUT);
+  pinMode(m2DIR_B, OUTPUT);
+  pinMode(PWM2, OUTPUT);
+  
   Serial.println("setup");
 }
 
 void loop() {
 ///This next stuff is for finding out where we are in relation to stuff
-  long duration, distance;
-  digitalWrite(trigPin, LOW);  // Added this line
+  long duration, distance; //variables to measure things
+  digitalWrite(trigPin, LOW);  // pulse off
   delayMicroseconds(2); // quick pause
-  digitalWrite(trigPin, HIGH);
+  digitalWrite(trigPin, HIGH); //pulse on
   delayMicroseconds(10); // pause
-  digitalWrite(trigPin, LOW);
-  duration = pulseIn(echoPin, HIGH);
+  digitalWrite(trigPin, LOW); //pulse off
+  duration = pulseIn(echoPin, HIGH); //duration determined bu how long/often the echoPin reads HIGH
   distance = (duration / 2) / 29.1; //how long the pulse took to hear divided by the speed of sound
 
   /*
@@ -55,6 +59,7 @@ try setting timing to control how much the mouse turns
     digitalWrite(led2, LOW);
 
     //MOTORS
+    //forward
     digitalWrite(m1DIR_A, HIGH);
     digitalWrite(m1DIR_B, LOW);
     analogWrite(PWM1, 255);
@@ -67,6 +72,7 @@ try setting timing to control how much the mouse turns
     digitalWrite(led, LOW);
     digitalWrite(led2, HIGH);
 
+    //turn in a direction
     digitalWrite(m1DIR_A, LOW);
     digitalWrite(m1DIR_B, HIGH);
     analogWrite(PWM, 255);
@@ -85,5 +91,5 @@ try setting timing to control how much the mouse turns
     Serial.print(distance);
     Serial.println(" cm");
   }
-  delay(500);
+  delay(500); //maybe kill this thing?
 }
