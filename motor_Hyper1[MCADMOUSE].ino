@@ -5,14 +5,16 @@ const int m1DIR_A = 5;
 const int m1DIR_B = 4;
 const int PWM1 = 6;
 
-const int m2DIR_A=8;
-const int m2DIR_B=7;
-const int PWM2 =9;
+const int m2DIR_A = 8;
+const int m2DIR_B = 7;
+const int PWM2 = 9;
 
 const int trigPin = 13;
 const int echoPin = 12;
 const int led = 11;
 const int led2 = 10;
+
+///////////////////////////////////////////////////////////////////
 
 void setup() {
   Serial.begin (9600); //need to add this if you want to see communication back-forth with your board. much encourage
@@ -48,14 +50,14 @@ void loop() {
   digitalWrite(trigPin, LOW); //pulse off
   duration = pulseIn(echoPin, HIGH); //duration determined bu how long/often the echoPin reads HIGH
   distance = (duration / 2) / 29.1; //how long the pulse took to hear divided by the speed of sound
-
+/////////////////////////////////////////////////////////////////////
   /*
      Below this zone is where you manipulate the motors!!!!
 try setting timing to control how much the mouse turns
      !!!!!!!
   */
-
-  if (distance < 5) {  
+/////////////////////////////////////////////////////////////////////
+  if (distance < 5) {  //conditions!
     
     // This is where the LED On/Off happens
     //add more variance here- play with those patterns &&the timer library to give us a show while the motors do their thing
@@ -68,7 +70,7 @@ try setting timing to control how much the mouse turns
     //forward
     digitalWrite(m1DIR_A, HIGH); //on
     digitalWrite(m1DIR_B, LOW); //off
-    analogWrite(PWM1, 255); //on [range of 0-255, on-off]
+    analogWrite(PWM1, 255); //on [range of 0-255, off-on]
     
     digitalWrite(m2DIR_A, HIGH);
     digitalWrite(m2DIR_B, LOW);
@@ -76,7 +78,8 @@ try setting timing to control how much the mouse turns
     
     Serial.print("FORWARD!!!");
   }
-  else {
+/////////////////////////////////////////////////////////////////  
+  else { //if the above condition is not met
     //lights
     digitalWrite(led, LOW);
     digitalWrite(led2, HIGH);
@@ -93,8 +96,6 @@ try setting timing to control how much the mouse turns
     Serial.print("TURN!!!");
   }
 ///////////////////////////////////////////////////////////////////
-
-
   if (distance >= 200 || distance <= 0) { //too far? try changing these numbers, like the 200
     Serial.println("Out of range");
   }
