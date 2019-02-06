@@ -9,10 +9,10 @@ const int m2DIR_A=7;
 const int m2DIR_B=8;
 const int PWM2 =9;
 
-int trigPin = 13;
-int echoPin = 12;
-int led = 11;
-int led2 = 10;
+const int trigPin = 13;
+const int echoPin = 12;
+const int led = 11;
+const int led2 = 10;
 
 void setup() {
   Serial.begin (9600); //need to add this if you want to see communication back-forth with your board. much encourage
