@@ -17,18 +17,24 @@ const int led2 = 10;
 void setup() {
   Serial.begin (9600); //need to add this if you want to see communication back-forth with your board. much encourage
   
+  //sensor pins
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  
+  //led pins
   pinMode(led, OUTPUT);
   pinMode(led2, OUTPUT);
 
+  //motor1
   pinMode(m1DIR_A, OUTPUT);
   pinMode(m1DIR_B, OUTPUT);
   pinMode(PWM1, OUTPUT);
+  //motor2
   pinMode(m2DIR_A, OUTPUT);
   pinMode(m2DIR_B, OUTPUT);
   pinMode(PWM2, OUTPUT);
   
+  //triple check the serial thing is doing
   Serial.println("setup");
 }
 
@@ -58,17 +64,20 @@ try setting timing to control how much the mouse turns
     digitalWrite(led, HIGH); // When the Red condition is met, the Green LED should turn off or whatever
     digitalWrite(led2, LOW);
 
-    //MOTORS
+    //MOTORS - check the chart posted on the git wiki for HIGH/LOW patterns
     //forward
-    digitalWrite(m1DIR_A, HIGH);
-    digitalWrite(m1DIR_B, LOW);
-    analogWrite(PWM1, 255);
-     digitalWrite(m2DIR_A, HIGH);
+    digitalWrite(m1DIR_A, HIGH); //on
+    digitalWrite(m1DIR_B, LOW); //off
+    analogWrite(PWM1, 255); //on [range of 0-255, on-off]
+    
+    digitalWrite(m2DIR_A, HIGH);
     digitalWrite(m2DIR_B, LOW);
     analogWrite(PWM2, 255);
+    
     Serial.print("FORWARD!!!");
   }
   else {
+    //lights
     digitalWrite(led, LOW);
     digitalWrite(led2, HIGH);
 
@@ -76,20 +85,22 @@ try setting timing to control how much the mouse turns
     digitalWrite(m1DIR_A, LOW);
     digitalWrite(m1DIR_B, HIGH);
     analogWrite(PWM, 255);
+    
     digitalWrite(m2DIR_A, HIGH);
     digitalWrite(m2DIR_B, LOW);
     analogWrite(PWM1, 255);
+    
     Serial.print("TURN!!!");
   }
 ///////////////////////////////////////////////////////////////////
 
 
-  if (distance >= 200 || distance <= 0) {
+  if (distance >= 200 || distance <= 0) { //too far? try changing these numbers, like the 200
     Serial.println("Out of range");
   }
   else {
     Serial.print(distance);
     Serial.println(" cm");
   }
-  delay(500); //maybe kill this thing?
+  delay(500); //maybe delete this thing?
 }
