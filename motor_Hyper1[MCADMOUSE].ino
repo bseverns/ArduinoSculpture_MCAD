@@ -5,8 +5,8 @@ const int m1DIR_A = 5;
 const int m1DIR_B = 4;
 const int PWM1 = 6;
 
-const int m2DIR_A=7;
-const int m2DIR_B=8;
+const int m2DIR_A=8;
+const int m2DIR_B=7;
 const int PWM2 =9;
 
 const int trigPin = 13;
