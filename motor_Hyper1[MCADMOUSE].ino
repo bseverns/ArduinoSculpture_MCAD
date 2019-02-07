@@ -96,7 +96,7 @@ try setting timing to control how much the mouse turns
     Serial.print("TURN!!!");
   }
 ///////////////////////////////////////////////////////////////////
-  if (distance >= 200 || distance <= 0) { //too far? try changing these numbers, like the 200
+  if (distance >= 200 || distance <= 0) { //too far? try changing these numbers
     Serial.println("Out of range");
   }
   else {
