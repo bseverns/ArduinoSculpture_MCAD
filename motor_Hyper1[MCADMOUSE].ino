@@ -57,7 +57,7 @@ try setting timing to control how much the mouse turns
      !!!!!!!
   */
 /////////////////////////////////////////////////////////////////////
-  if (distance < 5) {  //conditions!
+  if (distance < 5) {  //conditions! Change the number to a bigger one!
     
     // This is where the LED On/Off happens
     //add more variance here- play with those patterns &&the timer library to give us a show while the motors do their thing
