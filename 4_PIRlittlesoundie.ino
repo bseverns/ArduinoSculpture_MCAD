@@ -28,6 +28,7 @@ void loop() {
         digitalWrite(soundC2, HIGH);//on
         pcount++; //add one to pcount
         delay(2);
+        Serial.println("2");
         digitalWrite(soundC2, LOW);//low
       }
     } else if ({
@@ -38,6 +39,7 @@ void loop() {
         delay(2);
         digitalWrite(soundC1, LOW);//off
         digitalWrite(soundC2, LOW);//off
+        Serial.println("3");
       }
 
     } else {
