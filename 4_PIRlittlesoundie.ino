@@ -16,7 +16,7 @@ void loop() {
   if (sensorValue == HIGH) { //if motion
     //play sound
     if (pcount < 50) {
-      for (i = 0; i < 50; i++) {
+      for (int i = 0; i < 50; i++) {
         digitalWrite(soundC1, HIGH); //on
         pcount++; //add one to pcount
         delay(2);
@@ -24,15 +24,15 @@ void loop() {
         digitalWrite(soundC1, LOW); //off
       }
     } else if (pcount < 100) {
-      for (i = 0; i < 50; i++) {
+      for (int i = 0; i < 50; i++) {
         digitalWrite(soundC2, HIGH);//on
         pcount++; //add one to pcount
         delay(2);
         Serial.println("2");
         digitalWrite(soundC2, LOW);//low
       }
-    } else if ({
-    for (i = 0; i < 50; i++) {
+    } else if (pcount < 150){
+    for (int i = 0; i < 50; i++) {
         digitalWrite(soundC1, HIGH);//on
         digitalWrite(soundC2, HIGH);//on
         pcount++; //add one to pcount
