@@ -40,13 +40,10 @@ void loop() {
       digitalWrite(soundC2, LOW);//off
       Serial.println("3");
       delay(dlay);
-
     }
   } else if (sensorValue == LOW) {
     digitalWrite(soundC1, LOW);//off
     digitalWrite(soundC2, LOW);//off
-  }
-  if (pcount > 3) {//reset
     pcount = 0;
   }
 }
