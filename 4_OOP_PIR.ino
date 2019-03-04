@@ -16,10 +16,13 @@ void loop() {
   if (sensorValue == HIGH) { //if motion
     //play sound
     play1();
+    delay(500);
   } else if (pcount < 100) {
     play2();
+    delay(500);
   } else if (pcount < 150) {
     play3();
+    delay(500);
   }
   if (pcount > 149) {//reset
     reset();
