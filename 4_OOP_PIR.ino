@@ -32,15 +32,13 @@ void loop() {
 }
 
 void play1() {
-  if (pcount < 50) {
     for (int i = 0; i < 50; i++) {
       digitalWrite(soundC1, HIGH); //on
       pcount++; //add one to pcount
       delay(2);
       Serial.println("1");
       digitalWrite(soundC1, LOW); //off
-    }
-  }
+    } 
 }
 
 void play2() {
