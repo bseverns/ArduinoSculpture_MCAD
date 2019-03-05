@@ -71,7 +71,7 @@ void off() {
   digitalWrite(soundC2, LOW);//off
 }
 
-reset() {
+void reset() {
   pcount = 0;
 }
 //code End
