@@ -13,7 +13,7 @@ We carved each chunk of the course into its own folder:
 - [unit4](unit4/README.md) — spot warm bodies with PIR sensors and trigger noise like a pro.
 - [unit5](unit5/README.md) — sling data between Arduino, Processing, and the web without losing any bytes.
 
-Unit numbers follow the original syllabus, so yeah, we jump from 2 to 4. We did no-code work in unit 3 where we spent an hour alone, without cell phones or media sources I controlled, just existing in the world. I need to do that more for myself.
+Unit numbers follow the original syllabus, so yeah, we jump from 2 to 4. We did no-code work in unit 3 where we spent an hour alone, without cell phones or media sources we could personally controll, just existing in the world and noticing it happen. I need to do that more for myself.
 
 Check -link- soon for photo/video documentation!
 
